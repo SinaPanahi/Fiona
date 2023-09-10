@@ -1,0 +1,31 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <label for="name">Name</label>
+    <input name="name" id="name" type="text">
+
+    <label for="description">Description</label>
+    <textarea name ="description" id="description" ols="120" rows="10"></textarea>
+
+    <label for="width">Width</label>
+    <input name="width" id="width" type="text">
+
+    <label for="height">Height</label>
+    <input name="height" id="height" type="text">
+
+    <label for="price">Price</label>
+    <input name="price" id="price" type="text">
+
+    <label for="image">Painting Image</label>
+    <input name ="image" id="image" type="file">
+    
+    <label for="is-carousel-item">Displayed on carousel?</label>
+    <input name ="is-carousel-item" id="is-carousel-item" type="checkbox">
+
+    <input type="submit" name="submit" id="submit" value="Add Painting">
+
+</form>
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<form action="" method="POST" id="admin-website">
+
+    <label for="author">Author</label>
+    <input name="author" id="author" type="text" value="{{ website.author }}" disabled>
+
+    <p>{{website.name_description}}</p>
+    <label for="name">Website Name</label>
+    <input name ="name" id="name" type="text" value="{{website.name}}"> 
+
+    <p>{{website.address_description}}</p>
+    <label for="address">Website Address</label>
+    <input name ="address" id="address" type="text" value="{{website.address}}"> 
+    
+    <p>{{website.about_description}}</p>
+    <label for="about-content">About Content</label>
+    <textarea name ="about-content" id="about-content" type="text" cols="120" rows="10">{{website.about_content}}</textarea>
+
+    <p>{{website.privacy_policy_description}}</p>
+    <label for="privacy-policy-description">Privacy Policy Page Content</label>
+    <textarea name ="privacy-policy-content" id="privacy-policy-content" type="text" cols="120" rows="10">{{website.privacy_policy_content}}</textarea>
+    
+    <p>{{website.terms_of_use_description}}</p>
+    <label for="terms-of-use-description">Terms of Use Page Content</label>
+    <textarea name ="terms-of-use-content" id="terms-of-use-content" type="text" cols="120" rows="10">{{website.terms_of_use_content}}</textarea>
+
+    <input type="submit" name="submit" id="submit" value="Update">
+
+</form>
+{% endblock %}
+

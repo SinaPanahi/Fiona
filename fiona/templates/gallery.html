@@ -1,0 +1,29 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+<section id="gallery">
+{% for painting in paintings %}
+    <div class="painting">
+        <h4>{{painting.name}}</h4>
+        <a class="image-wrapper" href="{{url_for('painting', painting_id=painting.id)}}">
+            <img src="{{painting.url}}" alt="{{painting.name}}" data-painting-id="{{painting.id}}">
+        </a>
+        <p>{{painting.description | safe}}</p>
+        <a href="{{url_for('painting', painting_id=painting.id)}}">View other photos of this painting.</a>
+        <table>
+            <tr>
+                <td>Width: {{painting.width}} cm</td>
+                <td>Height: {{painting.height}} cm</td>
+            </tr>
+            <tr>
+                <td>Price: {{painting.price}}$ CAD</td>
+                {% if 'user_id' in session %}
+                    <td><a href="{{url_for('add_to_cart')}}?painting_id={{painting.id}}" class="add-to-cart" data-painting-id="{{painting.id}}">Add to Cart</a></td>
+                {% else %}
+                    <td><a href="{{url_for('add_to_cart')}}?painting_id={{painting.id}}">Add to Cart</a></td>
+                {% endif %}
+            </tr>
+        </table>
+    </div>
+{% endfor %}
+</section>
+{% endblock %}

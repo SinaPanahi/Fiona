@@ -1,0 +1,14 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<form action="" method="POST" id="contact">
+    <label for="email">Email</label>
+    <input name="email" id="email" type="text">
+    <label for="subject">Subject</label>
+    <input name ="subject" id="subject" type="text" value="{{subject}}">
+    <label for="message">Your Message:</label>
+    <textarea name ="message" id="message" cols="120" rows="10" placeholder=""></textarea>
+    <input type="submit" value="Send">
+</form>
+
+{% endblock %}

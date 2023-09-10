@@ -1,0 +1,12 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+<h2>Shopping Cart</h2>
+{% for painting in paintings %}
+    <div class="shopping-cart-item">
+        <p>{{painting.name}} - {{painting.price}}$ CAD</p>
+        <img src="{{painting.url}}" alt="painting.name">
+        <a href="remove-from-cart?painting_id={{painting.id}}" data-painting-id="{{painting.id}}" class="remove-from-cart">Remove</a>
+    </div>
+{% endfor %}
+
+{% endblock %}

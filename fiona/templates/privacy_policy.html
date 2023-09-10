@@ -1,0 +1,15 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<section id="privacy-policy">
+    <h1>Privacy Policy</h1>
+
+    {{website.privacy_policy_content | safe}}
+
+    <p>
+        If you have any questions or concerns regarding our privacy policy or the handling of your personal information, please 
+        contact us <a href="{{url_for('contact')}}?subject=privacy-policy">here</a>
+    </p>
+</section>
+
+{% endblock %}

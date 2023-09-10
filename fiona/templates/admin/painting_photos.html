@@ -1,0 +1,23 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<h1>Add Photos for {{painting.name}}</h1>
+<img src="../../{{painting.url}}" alt="image for {{painting.name}} painting">
+<div>
+    {% if painting_photos %}
+        <p>Already Existing Photos</p>
+        {% for photo in painting_photos %}
+            <img src="../../{{photo.url}}" alt="photos for painting {{painting.name}}">
+            <a href="{{url_for('delete_photo')}}?photo-id={{photo.id}}">Remove</a>
+        {% endfor %}
+    {% endif %}
+</div>
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <label for="photos">Painting Photos (Multiple)</label>
+    <input name ="photos" id="photos" type="file" multiple="">
+
+    <input type="submit" name="submit" id="submit" value="Add Photos">
+
+</form>
+{% endblock %}

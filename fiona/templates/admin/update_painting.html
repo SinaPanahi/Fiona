@@ -1,0 +1,36 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <label for="name">Name</label>
+    <input name="name" id="name" type="text" value="{{painting.name}}">
+
+    <label for="description">Description</label>
+    <textarea name ="description" id="description" ols="120" rows="10">{{painting.description}}</textarea>
+
+    <label for="width">Width</label>
+    <input name="width" id="width" type="text" value="{{painting.width}}">
+
+    <label for="height">Height</label>
+    <input name="height" id="height" type="text" value="{{painting.height}}">
+
+    <label for="price">Price</label>
+    <input name="price" id="price" type="text" value="{{painting.price}}">
+
+    <label for="image">Painting Image (Mandatory)</label>
+    <input name ="image" id="image" type="file">
+    
+    <label for="is-carousel-item">Displayed on carousel?</label>
+    <input name ="is-carousel-item" id="is-carousel-item" type="checkbox" 
+        {% if painting.is_carousel_item %}
+            checked="on"            
+        {% endif %}
+        >
+    
+
+    <input type="submit" name="submit" id="submit" value="Update Painting">
+
+</form>
+{% endblock %}
+

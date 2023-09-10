@@ -1,0 +1,19 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <label for="title">Posts Title</label>
+    <input name="title" id="title" type="text" value="{{post.title}}">
+
+    <label for="text">Post Body</label>
+    <textarea name ="text" id="text" ols="120" rows="10">{{post.text}}</textarea>
+
+    <label for="image">Post Image (optional)</label>
+    <input name ="image" id="image" type="file">
+
+    <input type="submit" name="submit" id="submit" value="Update Post">
+
+</form>
+{% endblock %}
+

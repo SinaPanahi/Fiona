@@ -1,0 +1,26 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+<h2>Your Paintings</h2>
+{% for painting in paintings %}
+    <div class="painting">
+        <h4>{{painting.name}}</h4>
+        <img src="../{{painting.url}}" alt="Image for {{painting.title}}">
+        {% if painting.is_sold %}
+            <p>This painting is sold.</p>
+        {% else %}
+            <p>This painting is NOT sold yet.</p>
+        {% endif %}
+        {% if painting.is_carousel_item %}
+            <p>Will be displayed on the carousel</p>
+        {% else %}
+            <p>Will NOT be displayed on the carousel</p>
+        {% endif %}
+        <p>{{painting.description | safe}}</p>
+        <a href="{{url_for('update_painting')}}?painting-id={{painting.id}}">Update Painting</a>
+        <a href="{{url_for('painting_photos')}}?painting-id={{painting.id}}">Add/Remove Photos For This Painting</a>
+        <a href="{{url_for('delete_painting')}}?painting-id={{painting.id}}">Delete Painting</a>
+    </div>
+{% endfor %}
+<a href="{{ url_for('add_painting') }}">Add New Painting</a>
+{% endblock %}
+

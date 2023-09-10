@@ -1,0 +1,8 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+<img src="../{{painting.url}}" alt="{{painting.name}}">
+{% for photo in painting_photos %}
+    <img src="../{{photo.url}}" alt="photo for {{painting.name}}">
+{% endfor %}
+lknkjnjknk
+{% endblock %}

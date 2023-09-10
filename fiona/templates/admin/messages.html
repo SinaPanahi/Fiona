@@ -1,0 +1,19 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+<h2>Your Messages</h2>
+{% for message in messages %}
+    <div class="message" data-message-id="{{message.id}}">
+        <h4>Subject: {{message.subject}}</h4>
+        <p>Message: {{message.message}}</p>
+        <p>From:  {{message.email}}</p>
+        <p>{{message.since.strftime('%h %d, %Y %H:%m')}}</p>
+        <a class="delete-button" href="{{ url_for('delete_message') }}?message_id={{message.id}}">Delete Message</a>
+        {% if not message.read %}
+            <a href="{{ url_for('mark_message_read') }}?message_id={{message.id}}">Mark Read</a>
+        {% elif message.read %}
+            <a href="{{ url_for('mark_message_unread') }}?message_id={{message.id}}">Mark Unread</a>
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock %}
+

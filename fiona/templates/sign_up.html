@@ -1,0 +1,12 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+<form action="{{ url_for('sign_up') }}" method="POST" id="sign-up">
+    <label for="email">Email</label>
+    <input name="email" id="email" type="text">
+    <label for="password">Password</label>
+    <input name ="password" id="password" type="password">
+    <label for="confirm-password">Confirm Password</label>
+    <input name="confirm-password" id="confirm-password" type="password">
+    <input type="submit" value="Sign Up">
+</form>
+{% endblock %}

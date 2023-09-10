@@ -1,0 +1,15 @@
+{% extends 'layouts/default.html' %}
+{% block content %}
+
+<section id="terms-of-use">
+    <h1>Terms of Use</h1>
+
+    {{website.terms_of_use_content | safe}}
+
+    <p>
+        If you have any questions or concerns regarding these terms of use, please contact us <a href="{{url_for('contact')}}?subject=terms-and-conditions">here</a>.
+    </p>
+
+</section>
+
+{% endblock %}
